@@ -99,7 +99,7 @@ public class GameController : MonoBehaviour
     private void _CreateBricks()
     {
         Debug.Log("Creating bricks");
-        int numPatterns = 3;
+        int numPatterns = 4;
         switch (Random.Range(0,numPatterns))
         {
             // debug single brick
@@ -137,6 +137,19 @@ public class GameController : MonoBehaviour
                 }
                 break;
             
+            // TESTING 
+            case 3:
+                for (int i = -15; i < 15; i  += 4)
+                {
+                    for (int j = -8; j < 10; j += 2)
+                    {
+                        // * add code to randomly spawn special bricks
+                        var brick3 = Instantiate(brickPrefab);
+                        brick3.transform.position = new Vector3((float)i*Mathf.Sin(j),(float)j,0f);
+                        brick3.transform.parent = BrickContainer.transform;
+                    } 
+                }
+                break;
             default:
                 Debug.Log("ERROR: Could not create Bricks.");
                 break;                
